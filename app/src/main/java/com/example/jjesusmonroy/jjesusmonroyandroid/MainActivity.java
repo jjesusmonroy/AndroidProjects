@@ -16,18 +16,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Button runButton = findViewById(R.id.run);
-        runButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                runCode(null);
-            }
-        });
-        findViewById(R.id.clear).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                clearLog(null);
-            }
-        });
+        runButton.setOnClickListener(view -> runCode(null));
+        findViewById(R.id.clear).setOnClickListener(view -> clearLog(null));
         mLog = findViewById(R.id.text);
         mLog.setMovementMethod(new ScrollingMovementMethod());
         mLog.setText("");
