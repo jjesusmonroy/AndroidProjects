@@ -5,11 +5,15 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
+    List<DataProvider> lista;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,40 +21,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         recyclerView = findViewById(R.id.recycler_view);
+        lista = new ArrayList<>();
 
-        String [] nombres ={"ARANDA PATRON NOMAR JAZIEL",
-        "CARDENAS RAMOS FRANCISCO EMANUEL",
-        "CASTILLO CORRALES VICTOR EMMANUEL",
-        "CERVANTES JIMÉNEZ JOSÉ MIGUEL",
-        "CORDERO RIVERA SELVA YAZMIN",
-        "CORDERO VILLA OSCAR ALBERTO",
-        "ESPINOSA ABANDO DENISSE YANETH",
-        "FIGUEROA CUETO JUAN RAMON",
-        "GALLEGOS GODINEZ FRANCISCO JAVIER",
-        "GIL LLANOS JUAN PEDRO",
-        "GONZALEZ ARELLANO ERNESTO",
-        "GUTIERREZ ESPARZA BRAYAN JESUS",
-        "GUTIÉRREZ ROJAS BRYAN",
-        "LOPEZ ALVARADO MISSAEL",
-        "MARTINEZ BAÑUELOS ERIKA LIZBETH",
-        "MENDEZ SANTANA KEVIN ALEJANDRO",
-        "MONROY SALCEDO JOSE DE JESUS",
-        "PADILLA SIMÓN BRIAN EFRÉN",
-        "PARRA DOMINGUEZ DYLAN SALVADOR",
-        "PEREZ ARAIZA FLOR MARIELA",
-        "PUGA FLORES CARLOS",
-        "REYES GODINEZ CARLA GUADALUPE",
-        "REYES GUERRERO GUILLERMO GUADALUPE",
-        "RICO ESPARZA HENRY",
-        "RIVERA RAMIREZ DAVID",
-        "SANCHEZ CARRILLO BETSY DEL CARMEN",
-        "SILVA CAMACHO EDUARDO LUIS",
-        "TORRES CUETO JESUS MANUEL",
-        "VALDEZ LOPEZ HOLLIVER EDUARDO",
-        "VALENZUELA MIRAMONTES JOSE PABLO",
-        "ZAMORANO ALCALÁ GUILLERMO"};
 
-        adapter= new RecyclerAdapter(nombres);
+        lista.add(new DataProvider("Monroy Salcedo Jose de Jesus","14400968","ISC"));
+        lista.add(new DataProvider("Sanchez Carrillo Betsy del Carmen","14401007","ISC"));
+        lista.add(new DataProvider("Gutierrez Rojas Bryan","14400945","ISC"));
+        lista.add(new DataProvider("Regla Torres Andrea","15400568","II"));
+        adapter= new RecyclerAdapter(lista,this);
 
         layoutManager = new LinearLayoutManager(this);
 
