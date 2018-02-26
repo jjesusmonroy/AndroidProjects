@@ -17,19 +17,15 @@ import java.util.List;
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.RecyclerViewHolder> {
 
     private List<DataProvider> lista;
-    private Context mCtx;
 
-    public RecyclerAdapter(List<DataProvider> lista, Context mCtx) {
+    public RecyclerAdapter(List<DataProvider> lista) {
         this.lista = lista;
-        this.mCtx = mCtx;
     }
 
     @Override
     public RecyclerViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        LayoutInflater inflater = LayoutInflater.from(mCtx);
-        View view = inflater.inflate(R.layout.item_layout,null);
-        RecyclerViewHolder holder = new RecyclerViewHolder(view);
-        return holder;
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_layout,parent,false);
+        return new RecyclerViewHolder(view);
     }
 
     @Override
@@ -39,7 +35,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recycl
         holder.nombre.setText(producto.getNombre());
         holder.nocontrol.setText(producto.getNocontrol());
         holder.carrera.setText(producto.getCarrera());
-        holder.imagen.setImageDrawable(mCtx.getResources().getDrawable(R.drawable.ic_launcher_background));
+        holder.imagen.setImageResource(R.drawable.ic_launcher_background);
     }
 
     @Override

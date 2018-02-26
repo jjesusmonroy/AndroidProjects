@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         lista.add(new DataProvider("Sanchez Carrillo Betsy del Carmen","14401007","ISC"));
         lista.add(new DataProvider("Gutierrez Rojas Bryan","14400945","ISC"));
         lista.add(new DataProvider("Regla Torres Andrea","15400568","II"));
-        adapter= new RecyclerAdapter(lista,this);
+        adapter= new RecyclerAdapter(lista);
 
         layoutManager = new LinearLayoutManager(this);
 
